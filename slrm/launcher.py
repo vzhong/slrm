@@ -12,7 +12,7 @@ default_args = {
     'time': '1:00:00',
     'mem': '32G',
     'chdir': os.getcwd(),
-    'mail-type': 'ALL',
+    # 'mail-type': 'ALL',
     'export': 'all',
 }
 
