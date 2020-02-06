@@ -20,3 +20,5 @@ for city, state in [('vancouver', 'bc'), ('toronto', 'on'), ('stanford', 'ca'), 
     # you can see default args in slrm.launcher.default_args
     slrm.launch(cmd, slurm_kwargs, dout=os.path.join('jobs', '{}-{}'.format(city, state)), dry=False)
 ```
+
+Pull requests welcome!
