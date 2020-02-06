@@ -5,7 +5,8 @@ Python library to submit slurm jobs.
 Installation:
 
 ```
-pip install git+https://github.com/vzhong/slrm
+pip install slrm  # from pypi
+pip install git+https://github.com/vzhong/slrm  # from github
 ```
 
 Usage:
