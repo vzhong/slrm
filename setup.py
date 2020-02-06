@@ -3,24 +3,23 @@ from codecs import open
 from os import path
 
 here = path.abspath(path.dirname(__file__))
-frequirement = path.join(here, 'requirements.txt')
-
-
-def parse_requirements(filename):
-    """ load requirements from a pip requirements file """
-    lineiter = (line.strip() for line in open(filename))
-    return [line for line in lineiter if line and not line.startswith("#")]
-
 
 # Get the long description from the README file
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
+
+required = []
+with open('requirements.txt') as f:
+    for line in f:
+        required.append(line.strip())
+
+
 setup(
     name='slrm',
     version='0.0.1',
 
-    description='python library to submit slurm jobs.',
+    description='Slurm launcher in Python.',
     long_description=long_description,
 
     # The project's main homepage.
@@ -53,7 +52,7 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='slurm,compute',
+    keywords='cloud compute, machine learning',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
@@ -63,15 +62,15 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=parse_requirements(frequirement),
+    install_requires=required,
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). You can install these using the following syntax,
     # for example:
     # $ pip install -e .[dev,test]
     extras_require={
-        'dev': ['check-manifest', 'sphinx', 'sphinx_rtd_theme'],
-        'test': ['coverage', 'nose'],
+        'dev': ['check-manifest', 'sphinx', 'sphinx_rtd_theme', 'nose'],
+        'test': ['coverage'],
     },
 
     # If there are data files included in your packages that need to be
